@@ -1,0 +1,100 @@
+.section-title-link {
+    /* < Back to Products: */
+    font-family: AvenirNext-MediumItalic;
+    font-size: 24px;
+    color: #4990E2;
+    text-align: left;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 100%;
+}
+
+.detail-outer-container {
+    background: rgba(155, 155, 155, 0.20);
+    /* display: inline-block;
+    margin: auto; */
+}
+
+.detail-inner-container {
+    background: white;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.detail-info-container * {
+    text-align: left;
+}
+
+.detail-image-container {
+    width: 40%;
+    min-width: 150px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.detail-info-container {
+    width: 40%;
+    min-width: 150px;
+    height: 400px;
+}
+
+#detail-image {
+    width: 80%;
+    padding-bottom: 100px;
+}
+
+#detail-title {
+    font-family: AvenirNext-Bold;
+    font-size: 36px;
+    color: #4A4A4A;
+}
+
+#detail-price {
+    /* Price: $64: */
+    font-family: AvenirNext-Bold;
+    font-size: 24px;
+    color: #4A4A4A;
+}
+
+#detail-caption {
+    /* A dope harness for y: */
+    font-family: AvenirNext-Regular;
+    font-size: 14px;
+    color: #4A4A4A;
+    line-height: 20px;
+    padding-bottom: 40px;
+}
+
+.detail-select-size-title {
+    /* Size:: */
+    font-family: AvenirNext-Bold;
+    font-size: 14px;
+    color: #4A4A4A;
+    letter-spacing: 0;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.detail-select-color-title {
+    /* Size:: */
+    font-family: AvenirNext-Bold;
+    font-size: 14px;
+    color: #4A4A4A;
+    letter-spacing: 0;
+    text-shadow: 0 1px 0 #FFFFFF;
+    padding-top: 16px;
+}
+
+.select-container {
+    width: 100%;
+}
+
+#add-to-cart-button {
+    margin-top: 32px;
+}
+
+select {
+    width: 50%;
+}

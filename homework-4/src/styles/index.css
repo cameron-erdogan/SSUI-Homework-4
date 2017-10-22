@@ -1,0 +1,86 @@
+body {
+    text-align: center;
+    margin: auto;
+}
+
+.container {
+    border: thin transparent solid;
+    margin: 32px;
+}
+
+.title-container {
+    margin: 80px;
+}
+
+.big-title {
+    font-family: AmericanTypewriter-Bold;
+    font-size: 100px;
+    color: #9B9B9B;
+}
+
+.sub-title {
+    font-family: AmericanTypewriter-Bold;
+    font-size: 48px;
+    color: #B4CA95;
+}
+
+.bottom-part {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#enter-button {
+    padding-top: 200px;
+    padding-left: 50px;
+    font-family: AmericanTypewriter-Bold;
+    font-size: 48px;
+    color: #4990E2;
+}
+
+.title-image {
+    height: 300px;
+}
+
+.nav {
+    list-style: none;
+    margin: 0;
+    background-color: #B4CA95;
+    width: 100%;
+    height: 50px;
+    display: block;
+    position: relative;
+}
+
+.logo {
+    font-family: AmericanTypewriter-Bold;
+    font-size: 48px;
+    color: white;
+    font-size: 2em;
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.shopping-cart {
+    /* background-color: greenyellow; */
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    top: 4px;
+    right: 0;
+}
+
+.shopping-cart-icon {
+    height: 60%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    z-index: 10;
+}
+
+.shopping-cart-items {
+    font-family: AmericanTypewriter;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+}
