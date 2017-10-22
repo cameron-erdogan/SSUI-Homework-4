@@ -9,10 +9,21 @@ import './styles/index.css';
 import cart from './images/shopping_cart.png';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 0,
+    }
+  }
 
   renderPageView(){
-    return <Browse/>
+    if(this.state.page === 0)
+      return <Browse/>
+    if(this.state.page === 1)
+      return (<p>test</p>)
   }
+
+
 
   render() {
     return (
