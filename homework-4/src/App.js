@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Browse from './Browse.jsx';
+import ItemDetail from './ItemDetail.jsx';
 // import logo from './logo.svg';
 import './App.css';
 import './styles/browse.css';
@@ -13,17 +14,24 @@ class App extends Component {
     super(props);
     this.state = {
       page: 0,
+      currentlySelectedItem: null,
     }
   }
 
+  //0 is browse
+  //1 is item detail
   renderPageView(){
     if(this.state.page === 0)
-      return <Browse/>
+      return <Browse onClick={this.handleItemDetail.bind(this)}/>
     if(this.state.page === 1)
-      return (<p>test</p>)
+      return <ItemDetail item={this.state.currentlySelectedItem} />
   }
 
-
+  handleItemDetail(item){
+    // need to include an id of some sort
+    this.setState({page: 1, currentlySelectedItem : item});
+    //item is going to be a string here
+  }
 
   render() {
     return (

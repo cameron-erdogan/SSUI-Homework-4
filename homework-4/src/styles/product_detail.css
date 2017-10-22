@@ -41,25 +41,25 @@
     height: 400px;
 }
 
-#detail-image {
+.detail-image {
     width: 80%;
     padding-bottom: 100px;
 }
 
-#detail-title {
+.detail-title {
     font-family: AvenirNext-Bold;
     font-size: 36px;
     color: #4A4A4A;
 }
 
-#detail-price {
+.detail-price {
     /* Price: $64: */
     font-family: AvenirNext-Bold;
     font-size: 24px;
     color: #4A4A4A;
 }
 
-#detail-caption {
+.detail-caption {
     /* A dope harness for y: */
     font-family: AvenirNext-Regular;
     font-size: 14px;
@@ -91,7 +91,7 @@
     width: 100%;
 }
 
-#add-to-cart-button {
+.add-to-cart-button {
     margin-top: 32px;
 }
 
