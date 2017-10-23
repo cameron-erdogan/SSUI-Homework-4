@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Item from './App.js';
-import BuyableItem from './App.js';
 import './App.css';
 import './styles/product_detail.css';
 
