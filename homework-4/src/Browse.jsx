@@ -23,6 +23,7 @@ class Item {
         this.price = price;
         this.altText = altText;
         this.image = image;
+        this.cartID = null;
     }
 }
 
