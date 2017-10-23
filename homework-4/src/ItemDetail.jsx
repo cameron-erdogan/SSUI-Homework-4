@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import './styles/browse.css';
-
-// import catHarnessImage from './images/cat_harness.jpg';
-// import dogHarnessImage from './images/dog_harness.jpg';
-// import foodAndWaterAttachmentImage from './images/food_harness.jpg';
-// import gpsCollarImage from './images/gps_collar.jpg';
+import './styles/product_detail.css';
 
 class ItemDetail extends Component {
 
-    // id : this.props.id, 
-    // name : this.props.name, 
-    // image : this.props.image, 
-    // altText : this.props.altText,
-    // price : this.props.price, 
-    // need to get the caption from somewhere
+    //think about having quantity as part of the state?
+
+    addToCart(){
+        // alert("cal me");
+        this.props.onAddToCartClick(this.props.item, 1);
+    }
 
     render(){
         return(
             <div className="container outer-container">
-                <a href="browse.html" className="container section-title-link">Back to Products</a>
+                <a href="#" onClick={this.props.onBrowseClick} className="container section-title-link">Back to Products</a>
                 <div className="container detail-outer-container">
                     <div className="container detail-inner-container">
                         <div className="container detail-image-container">
-                            <img className="detail-image" src={this.props.item.image}></img>
+                            <img className="detail-image" src={this.props.item.image} alt={this.props.item.altText}></img>
                         </div>
                         <div className="container detail-info-container">
                             <div className="detail-title">{this.props.item.name}</div>
@@ -51,7 +46,7 @@ class ItemDetail extends Component {
                                 </select>
                             </div>
                             <div className="button-container">
-                                <button className="add-to-cart-button">Add to Cart</button>
+                                <button onClick={() => this.addToCart()} className="add-to-cart-button">Add to Cart</button>
                             </div>
                         </div>
                     </div>
