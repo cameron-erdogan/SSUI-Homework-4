@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import './styles/browse.css';
-
 import catHarnessImage from './images/cat_harness.jpg';
 import dogHarnessImage from './images/dog_harness.jpg';
 import foodAndWaterAttachmentImage from './images/food_harness.jpg';
@@ -15,16 +14,17 @@ import gpsCollarImage from './images/gps_collar.jpg';
             { "id": 3, "name": "GPS Tracker Collar", "price": 30, "image": gpsCollarImage, "description": "Make sure your pet never gets lost!", altText : "GPS collar" }
         ];
 
+
 class Item {
-    constructor(id, name, description, price, altText, image){
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.altText = altText;
-        this.image = image;
-        this.cartID = null;
-    }
+  constructor(id, name, description, price, altText, image){
+      this.id = id;
+      this.name = name;
+      this.description = description;
+      this.price = price;
+      this.altText = altText;
+      this.image = image;
+      this.cartID = null;
+  }
 }
 
 class Browse extends Component{

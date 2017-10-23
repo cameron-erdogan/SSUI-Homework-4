@@ -10,7 +10,6 @@ import './styles/index.css';
 import cart from './images/shopping_cart.png';
 
 var currentCart = [];
-var currentCartID = 0;
 
 function guid() {
     function s4() {
@@ -20,7 +19,16 @@ function guid() {
     }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
+}
+
+//adds size, quantity, color 
+class BuyableItem {
+  constructor(item, quantity){
+      this.item = item;
+      this.quantity = quantity;
+      this.cartID = guid();
   }
+}
 
 class App extends Component {
   constructor(props) {
@@ -29,11 +37,9 @@ class App extends Component {
     this.state = {
       page: 0,
       currentlySelectedItem: null,
-      cartQuantity: currentCart.length,
+      cartQuantity: this.calculateCartQuantity(currentCart),
     }
   }
-
- 
 
   readFromCart(){
     if(typeof(Storage) !== "undefined"){
@@ -47,23 +53,41 @@ class App extends Component {
 
   //0 is browse
   //1 is item detail
+  //2 is 
   renderPageView(){
     if(this.state.page === 0)
       return <Browse onClick={this.handleItemDetail.bind(this)} />
     if(this.state.page === 1)
       return <ItemDetail onBrowseClick={() => this.handleBackToProducts()} onAddToCartClick={this.handleAddItemToCart.bind(this)} item={this.state.currentlySelectedItem} />
     if(this.state.page === 2)
-      return <Cart cart={currentCart} onBrowseClick={() => this.handleBackToProducts()} />
+      return <Cart cart={currentCart} onBrowseClick={() => this.handleBackToProducts()} onRemoveClick={this.handleRemoveItemFromCart.bind(this)} />
   }
 
   handleItemDetail(item){
     this.setState({page: 1, currentlySelectedItem : item});
   }
 
+  calculateCartQuantity(currentCart){
+    let quantity = 0;
+    for(var i = 0; i < currentCart.length; i++){
+      let buyableItem = currentCart[i];
+      quantity += parseInt(buyableItem.quantity);
+    }
+    return quantity;
+  }
+
+  //need to convert an item to a buyable item
   handleAddItemToCart(item, quantity){
-    this.setState({cartQuantity : this.state.cartQuantity+1})
-    item.cartID = guid(); //important! create a unique id for a cart item
-    currentCart.push(item);
+    var buyableItem = new BuyableItem(item, quantity);
+    currentCart.push(buyableItem);
+    this.setState({cartQuantity : this.calculateCartQuantity(currentCart)})
+    localStorage.setItem("cart", JSON.stringify(currentCart));
+    this.readFromCart();
+  }
+
+  handleRemoveItemFromCart(cart){
+    currentCart = cart;
+    this.setState({cartQuantity : this.calculateCartQuantity(currentCart)})
     localStorage.setItem("cart", JSON.stringify(currentCart));
     this.readFromCart();
   }

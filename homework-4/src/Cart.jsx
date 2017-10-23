@@ -8,14 +8,13 @@ class CartItem extends Component{
         return(
             <div data-item-num="0" className="container cart-item">
                 <div className="cart-item-image-container">
-                    <img className="cart-item-image" src={this.props.item.image}></img>
+                    <img className="cart-item-image" src={this.props.buyableItem.item.image}></img>
                 </div>
                 <div className="cart-item-caption-container">
-                    <div className="cart-item-caption-head">{this.props.item.name}</div>
-                    <div className="cart-item-caption-head">${this.props.item.price}</div>
-                    <div className="cart-item-caption-sub">Crazyberry</div>
-                    <div className="cart-item-caption-sub">Small</div>
-                    <button onClick={() => this.props.onRemoveClick(this.props.item)} className="remove-item">Remove</button>
+                    <div className="cart-item-caption-head">{this.props.buyableItem.item.name}</div>
+                    <div className="cart-item-caption-head">${this.props.buyableItem.item.price}</div>
+                    <div className="cart-item-caption-sub">Quantity: {this.props.buyableItem.quantity}</div>
+                    <button onClick={() => this.props.onRemoveClick(this.props.buyableItem)} className="remove-item">Remove</button>
                 </div>
             </div>
         )
@@ -33,11 +32,11 @@ class Cart extends Component {
     generateCartItems(){
         var elements = [];
         for(var i = 0; i < this.state.cartItems.length; i++){
-            var item = this.state.cartItems[i];
+            var buyableItem = this.state.cartItems[i];
             elements.push(
                 <CartItem
                     key = {i}
-                    item = {item} 
+                    buyableItem = {buyableItem} 
                     onRemoveClick = {this.removeItem.bind(this)}
                 />
             );
@@ -46,24 +45,29 @@ class Cart extends Component {
         return elements;
     }
 
-    removeItem(item){
-        //gotta use items.splice(i, i+1)
-        let thisItemIndex = null 
+    removeItem(buyableItem){
         let cartItems = this.state.cartItems;
         let newCart = [];
-        for(var i = 0; i < cartItems; i++){
-            if(cartItems[i].cartID != item.cartID){
+        console.log("test");
+        console.log("buyable " + buyableItem.cartID);
+        for(var i = 0; i < cartItems.length; i++){
+            console.log("cart id is " + cartItems[i].cartID);
+            if(cartItems[i].cartID !== buyableItem.cartID){
                 newCart.push(cartItems[i]);
             }
         }
+
+        //need to update cart in App too
+        this.props.onRemoveClick(newCart);
+
         this.setState({cartItems: newCart});
     }
 
     calculateSubtotal(){
         let subTotal = 0;
         for(var i = 0; i < this.state.cartItems.length; i++){
-            var item = this.state.cartItems[i];
-            subTotal += item.price;
+            var buyableItem = this.state.cartItems[i];
+            subTotal += buyableItem.item.price * buyableItem.quantity;
         }
 
         return subTotal;
