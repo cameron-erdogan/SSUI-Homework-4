@@ -8,7 +8,7 @@ class CartItem extends Component{
         return(
             <div data-item-num="0" className="container cart-item">
                 <div className="cart-item-image-container">
-                    <img className="cart-item-image" src={this.props.buyableItem.item.image}></img>
+                    <img className="cart-item-image" src={this.props.buyableItem.item.image} alt={this.props.buyableItem.item.alt}></img>
                 </div>
                 <div className="cart-item-caption-container">
                     <div className="cart-item-caption-head">{this.props.buyableItem.item.name}</div>
